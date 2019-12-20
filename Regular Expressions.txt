@@ -1,0 +1,77 @@
+        Using a regular expression in java requires importing the regex class.
+        The matcher and pattern classes need to be imported, for the purposes
+        of this study session they were all imported with the *.
+        import java.util.regex.Pattern;
+        import java.util.regex.Matcher;
+
+        Delimiters are forward slashes /abc/
+        This would search for the text "abc".
+
+        Modes:
+        Standard: /re/
+        Global: /re/g     searches for all the matches.
+        Case insensitive: re/i
+        Multiline: re/m
+
+        Metacharacters allow us to form expressions.
+        They are as follows, \.* + - {} [] | ? () : ! =
+        Metacharacters can have multiple meanings.
+
+        Wildcard.
+        .     Any character expect for a new line.
+        For example /h.t/ will match hat, hated and hot but not match heat.
+        Be careful of using the wildcard to represent an actual period as it
+        will represent the period and every other character.
+
+        \ backslash is for escaping metacharacters. After it the next character
+        Will be taken as a literal. For example a \. will only return a
+        period, not act as a wildcard. For a literal backslash use two escape
+        characters. \\
+        Never escape a literal because it could assign them a meaning.
+
+	\r is a line return.
+	\n is a new line. This will let you capture text accross multiple lines. Each line requires another \n.
+	\r\n is both.
+	
+	Regular Expression 
+	/c\nd/g
+
+	Text example
+	abc
+	def
+	This will capture the c from the first line and the d from the second line.
+
+	Character Sets
+	Character sets match one of several characters.
+	For example /gr[ea]y/ matches any one vowel.
+	This would match grey or gray but not great as it only matches the first character.
+
+	Character Ranges
+	Uses the - metacharacter.
+	Includes all characters between two characters.
+	Only works inside a character set, otherwise it's a literall.
+	\[0-9]\ For all the numbers.
+	\[A-Za-z]\ For all letters uppercase and lowercase.
+	This is not a number range, it's a character range. So [50-99] would still be 0-9.
+
+	Negative Metacharacter.
+	^	Means it's not any one of several characters. Or the not! function in java.
+	Using the ^ doesn't include an empty character, it's still looking for a character.
+	\see[^mn]\ Wouldn't match the word "see" because it's still looking for something after.
+	It would however match "see." or match "see " with a period or a space because those are characters.
+	
+	Shorthand Character Sets
+	\d is for digit. It's the same as [0-9].
+	\w is for word. It matches [a-zA-Z0-9_].
+	\s is for whitespace, aka spaces. It matches [\t\r\n].
+	Capitalizing the letter makes is the negative(not).
+
+	Repition Metacharacters
+	* + ?
+	These are always placed after the chacter. For example /.+/g
+	* Preceding item, zero or more times.
+	+ Preceding item, one or more times.
+	? Preceding item, zero or one time.
+	.+ is a common useage as it will give you any characters, as long as there is at least one.
+
+	
