@@ -1,3 +1,4 @@
+
         Using a regular expression in java requires importing the regex class.
         The matcher and pattern classes need to be imported, for the purposes
         of this study session they were all imported with the *.
@@ -73,5 +74,39 @@
 	+ Preceding item, one or more times.
 	? Preceding item, zero or one time.
 	.+ is a common useage as it will give you any characters, as long as there is at least one.
-
 	
+	Quantified Repition
+	{}	Are the metacharacters.
+	Place the minimum and maximum number of repitions. No negative numbers. Zero is fine.
+	Seperate with a comma. \d{4,8}\g
+	Three methods of using quantified repitions, {min,max}, {4} exact number(in this case four)
+	or the minimum and an infinite number as the max{4,}.
+	
+	Greedy Expressions
+	Will try to match as much as possible before going to the next instruction in the expression.
+	
+	Lazy Expressions
+	?	Metacharacter. Used differently than the repition metacharacter variant.
+	Lazy means to match as little as possible before going to the next instruction.
+	?? is used to make something lazy. 
+
+	Grouping Metacharacters
+	()	Are the metacharacters.
+	Purposes for grouping are to apply repition characters, alternation and capturing or replacing.
+	For replacment tools, use a $ or a backslash depending on the tool.
+	/(\d{3})-(\d{3}-\d{4})/
+	$1 $2
+	$1 represents the first group, $2 represents the second group.
+
+	Alternation Metacharacter
+	|	Is like the or operator.
+	Ordered, goes left to right. If the first one matches, it uses the first match, otherwise it goes to the
+	next match.
+
+	Start and End Anchors
+	^	Start of a string/line.
+	$	End of a string/line.
+	\A	Start of a string, never the end of a line.
+	\Z	End of a string, never the end of a line.
+
+
