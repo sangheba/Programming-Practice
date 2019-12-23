@@ -1,4 +1,3 @@
-
         Using a regular expression in java requires importing the regex class.
         The matcher and pattern classes need to be imported, for the purposes
         of this study session they were all imported with the *.
@@ -106,7 +105,26 @@
 	Start and End Anchors
 	^	Start of a string/line.
 	$	End of a string/line.
-	\A	Start of a string, never the end of a line.
-	\Z	End of a string, never the end of a line.
+	\A	Start of a string, never the end of a line. Placed before the word in the expression.
+	\Z	End of a string, never the end of a line. Placed after the word in the expression.
+	Example of ^	/^def/g
+	Doesn't match abcdefghijklmnopqrstuvwxyz.
+	But does match defabcdefghijklmnopqrstuvwxyz.
+	This is because ^ only matches if it's at the start of a string.
+	/$def/g
+	Matches abcdefghijklmnopqrstuvwxyzdef
+	But doesn't match abcdefghijklmnopqrstuvwxyz because it's not at the end of the string.
+	Buy putting a starting and end anchor, you can make sure the string matches the entire regular expression.
+	/^expression$/
+	Matches expression but not expressions.
+	Will need to use multiline mode most of the time for this to work. The multiline flag is m.
 
-
+	Word Boundary
+	\b Word boundary (start/end of a word)
+	References a position, not a character.
+	Word characters are A-Za-z and _.
+	/\ba\b/
+	Matches the a in "The thing is a."
+	Also matches the a in "The thing is a "
+	Wouldn't match the a in "The thing is as"
+	Useful for finding things in isolation. Like I or a.
