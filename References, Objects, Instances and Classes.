@@ -1,0 +1,13 @@
+References, Objects, Instances and Classes.
+A class is a blueprint or a plan.
+Each object of the class is an instance.
+The address of the class is the reference. The reference can be copied many times but copying the reference doesn't copy the object or class.
+References can be passed to parameters and constructors.
+
+House blueHouse = new House("blue");
+House anotherHouse = blueHouse;
+
+Line seven creates a new instance of the House Class.
+Line eight creates a new reference to the House Class.
+
+Objects are instances of the class in memory.
