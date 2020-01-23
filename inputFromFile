@@ -1,0 +1,44 @@
+package ExternalText;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+
+//        Create a new file variable. Requires you to import java.io.File.
+//        Then pass it the file path and name as parameters.
+        File file = new File("/home/barry/Documents/captmidn.txt");
+//        Pass the scanner the file variable we just created. You will need
+//        to add the "throws FileNotFoundException" to avoid a compilation
+//        error.
+        Scanner scan = new Scanner(file);
+
+//        Use Scanner in a loop to loop through every line of the text file
+//        using the hasNextLine method.
+//        while (scan.hasNextLine()) {
+//        System.out.println(scan.nextLine());
+//        }
+
+//        Create a new variable that we'll add content to from a file.
+        String fileContent = "This is a new file, made by us.";
+//        This concat method adds text to the end of a String.
+        while (scan.hasNextLine()) {
+            fileContent = fileContent.concat(scan.nextLine() + "\n");
+        }
+
+//        Write to a new file using the FileWriter class. Give the new object
+//        the path as a parameter, including the name of the new file you are
+//        creating. You must add the exception to the main method or you will
+//        get a compilation error.
+        FileWriter writter = new FileWriter("/home/barry/Documents/newFile" +
+                ".txt");
+//        Use the write method to write to the file that was created.
+        writter.write(fileContent);
+//        Close the FileWritter.
+        writter.close();
+
+    }
+}
